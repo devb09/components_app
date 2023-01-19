@@ -6,15 +6,26 @@ class AppTheme {
   static const Color primaryColorDark = Color.fromARGB(255, 128, 143, 226);
 
   static final ThemeData lightTheme = ThemeData.light().copyWith(
-    //color primario
-    primaryColor: primaryColor,
+      //color primario
+      primaryColor: primaryColor,
 
-    //AppBar theme
-    appBarTheme: const AppBarTheme(color: primaryColor, elevation: 10),
+      //AppBar theme
+      appBarTheme: const AppBarTheme(color: primaryColor, elevation: 10),
 
-    //Text button
-    textButtonTheme: TextButtonThemeData(style: TextButton.styleFrom(foregroundColor: primaryColor))
-  );
+      //Text button
+      textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(foregroundColor: primaryColor)),
+
+      //floatingAction
+      floatingActionButtonTheme:
+          const FloatingActionButtonThemeData(backgroundColor: primaryColor),
+
+      //Elevation botton
+      elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.indigo,
+              shape: const StadiumBorder(),
+              elevation: 2)));
 
   static final ThemeData darkTheme = ThemeData.dark().copyWith(
     //color primario

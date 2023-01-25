@@ -7,3 +7,4 @@ export 'package:components_app/screens/listview1.dart';
 export 'package:components_app/screens/listview2.dart';
 export 'package:components_app/screens/animated.dart';
 export 'package:components_app/screens/inputs.dart';
+export 'package:components_app/screens/slider.dart';

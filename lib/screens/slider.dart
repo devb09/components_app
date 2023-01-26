@@ -10,6 +10,7 @@ class SliderScreen extends StatefulWidget {
 
 class _SliderScreenState extends State<SliderScreen> {
   double _sliderValue = 100;
+  bool _sliderEnabled = true;
 
   @override
   Widget build(BuildContext context) {
@@ -17,31 +18,71 @@ class _SliderScreenState extends State<SliderScreen> {
       appBar: AppBar(
         title: Text('Slider and checks'),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Slider.adaptive(
-              activeColor: AppTheme.primaryColor,
-              divisions: 10,
-              min: 10,
-              max: 400,
-              value: _sliderValue,
-              onChanged: (value) {
-                _sliderValue = value;
-                setState(() {});
-              },
+      body: Column(
+        children: [
+          Slider.adaptive(
+            activeColor: AppTheme.primaryColor,
+            divisions: 10,
+            min: 10,
+            max: 400,
+            value: _sliderValue,
+            onChanged: _sliderEnabled
+                ? (value) {
+                    _sliderValue = value;
+                    setState(() {});
+                  }
+                : null,
+          ),
+          // Checkbox(
+          //   value: _sliderEnabled,
+          //   onChanged: (value) {
+          //     _sliderEnabled = value ?? true;
+          //     setState(() {});
+          //   },
+          // ),
+          CheckboxListTile(
+            activeColor: AppTheme.primaryColor,
+            title: const Text('Habilitar Slider'),
+            value: _sliderEnabled,
+            onChanged: (value) {
+              setState(() {
+                _sliderEnabled = value ?? true;
+              });
+            },
+          ),
+          // Switch(
+          //   value: _sliderEnabled,
+          //   onChanged: (value) {
+          //     setState(() {
+          //       _sliderEnabled = value;
+          //     });
+          //   },
+          // ),
+          SwitchListTile.adaptive(
+            activeColor: AppTheme.primaryColor,
+            title: const Text('Habilitar Slider'),
+            value: _sliderEnabled,
+            onChanged: (value) {
+              setState(() {
+                _sliderEnabled = value;
+              });
+            },
+          ),
+          AboutListTile(), 
+          Expanded(
+            child: SingleChildScrollView(
+              child: Image(
+                image: const NetworkImage(
+                    'https://w0.peakpx.com/wallpaper/955/867/HD-wallpaper-thirteen-scissor-7-anime-scissor-scissor-seven-thirteen.jpg'),
+                fit: BoxFit.contain,
+                width: _sliderValue,
+              ),
             ),
-            Image(
-              image: const NetworkImage(
-                  'https://i.pinimg.com/originals/73/0f/d7/730fd784cdb7ec663bed196ca0d52a8c.jpg'),
-              fit: BoxFit.contain,
-              width: _sliderValue,
-            ),
-            const SizedBox(
-              height: 50,
-            )
-          ],
-        ),
+          ),
+          const SizedBox(
+            height: 50,
+          )
+        ],
       ),
     );
   }

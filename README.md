@@ -9,3 +9,4 @@ Avatar
 Animated
 Inputs
 Alert
+Slider & checks

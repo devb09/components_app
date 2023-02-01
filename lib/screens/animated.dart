@@ -18,11 +18,11 @@ class _AnimatedScreenState extends State<AnimatedScreen> {
   void hanldeChangeSahpe() {
     //nextInt porque NextDouble va de 0 a 1, en Nextint defines hasta que número ir, pero se debe sumar al final ya que puede dar un 0
     final random = Random();
-    _width = random.nextInt(500).toDouble() + 50;
-    _height = random.nextInt(500).toDouble() + 50;
+    _width = random.nextInt(500).toDouble() + 50.0;
+    _height = random.nextInt(500).toDouble() + 50.0;
     _color = Color.fromRGBO(
         Random().nextInt(255), Random().nextInt(255), Random().nextInt(255), 1);
-    _borderRaius = BorderRadius.circular(random.nextInt(100).toDouble() + 1);
+    _borderRaius = BorderRadius.circular(random.nextInt(100).toDouble() + 1.0);
     print(random.nextInt(100).toDouble() + 1);
     setState(() {});
   }
@@ -46,9 +46,14 @@ class _AnimatedScreenState extends State<AnimatedScreen> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: hanldeChangeSahpe,
-          child: const Icon(
+          splashColor: Colors.pink,
+          child: Icon(
             Icons.play_arrow,
             size: 40.0,
+            shadows: [
+              BoxShadow(
+                  color: Colors.grey.shade600, spreadRadius: 1, blurRadius: 15)
+            ],
           ),
         ));
   }

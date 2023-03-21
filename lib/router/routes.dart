@@ -27,32 +27,32 @@ class Routes {
         icon: Icons.card_giftcard,
         name: 'Card',
         screen: const CardScreen()),
-   MenuOption(
+    MenuOption(
         route: '/alert',
         icon: Icons.card_giftcard,
         name: 'Alert',
         screen: const AlertScreen()),
-   MenuOption(
+    MenuOption(
         route: '/avatar',
         icon: Icons.person,
         name: 'Avatar',
         screen: const AvatarScreen()),
-   MenuOption(
+    MenuOption(
         route: '/animated',
         icon: Icons.play_circle_outline_outlined,
         name: 'Animated',
         screen: const AnimatedScreen()),
-   MenuOption(
+    MenuOption(
         route: '/inputs',
         icon: Icons.input,
         name: 'Inputs',
         screen: const InputsScreen()),
-   MenuOption(
+    MenuOption(
         route: '/slider',
         icon: Icons.slow_motion_video_rounded,
         name: 'Slider',
         screen: const SliderScreen()),
-   MenuOption(
+    MenuOption(
         route: '/listbuilder',
         icon: Icons.build_circle_outlined,
         name: 'Infinite scroll & Pull request',
@@ -62,7 +62,7 @@ class Routes {
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
     Map<String, Widget Function(BuildContext)> appRoutes = {};
 
-appRoutes.addAll({'/home': (BuildContext context) => const HomeScreen()});
+    appRoutes.addAll({'/home': (BuildContext context) => const HomeScreen()});
     for (final option in menuOptions) {
       appRoutes.addAll({option.route: (BuildContext context) => option.screen});
     }

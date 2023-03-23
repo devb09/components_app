@@ -7,11 +7,6 @@ class Routes {
   static const initialRoute = '/home';
 
   static final menuOptions = <MenuOption>[
-    // MenuOption(
-    //     route: '/home',
-    //     icon: Icons.list_alt_outlined,
-    //     name: 'Home',
-    //     screen: const HomeScreen()),
     MenuOption(
         route: '/listview1',
         icon: Icons.list_alt_outlined,
